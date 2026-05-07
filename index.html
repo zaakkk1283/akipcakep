@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Our Love Story | Album Kiri Kanan Sebelahan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Poppins', 'Quicksand', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(120deg, #fff5fa 0%, #ffe4ef 100%);
+            color: #a14566;
+            padding: 1.5rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: rgba(255, 253, 254, 0.88);
+            backdrop-filter: blur(4px);
+            border-radius: 2.5rem;
+            padding: 1.8rem 1.5rem 2.2rem;
+            box-shadow: 0 25px 40px rgba(235, 120, 155, 0.2);
+            border: 1px solid #ffd7e4;
+        }
+
+        /* HERO : DUA FOTO COUPLE BERSEMBALAHAN */
+        .hero-side {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .couple-duo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.9rem;
+            flex-wrap: wrap;
+            background: rgba(255, 240, 246, 0.7);
+            padding: 1rem 1.2rem;
+            border-radius: 2rem;
+            width: fit-content;
+            margin: 0 auto;
+            backdrop-filter: blur(2px);
+            border: 1px solid #ffccdb;
+        }
+
+        .couple-item {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 0.5rem;
+            box-shadow: 0 12px 18px rgba(160, 70, 100, 0.12);
+            transition: all 0.2s ease;
+            border: 1px solid #ffbfd2;
+            width: 170px;
+            max-width: 45%;
+        }
+
+        .couple-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 22px rgba(200, 85, 115, 0.2);
+        }
+
+        .couple-img-small {
+            width: 100%;
+            height: auto;
+            border-radius: 1.2rem;
+            display: block;
+            object-fit: cover;
+            aspect-ratio: 4 / 5;
+            background-color: #ffeaf2;
+        }
+
+        .caption-inline {
+            font-size: 0.7rem;
+            margin-top: 0.4rem;
+            font-weight: 500;
+            color: #c46487;
+            text-align: center;
+        }
+
+        .hero-tagline {
+            margin-top: 0.8rem;
+            font-size: 0.85rem;
+            background: #fff0f5dd;
+            display: inline-block;
+            padding: 0.25rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 500;
+        }
+
+        /* ALBUM SECTION - KIRI & KANAN SEBELAHAN HORIZONTAL (bukan atas bawah) */
+        .album-section {
+            margin: 2.2rem 0 1.8rem;
+        }
+
+        .section-title {
+            font-size: 1.7rem;
+            font-weight: 700;
+            text-align: center;
+            border-bottom: 3px dashed #f6b0c8;
+            display: inline-block;
+            width: auto;
+            margin: 0 auto 1.5rem auto;
+            padding-bottom: 0.2rem;
+            background: linear-gradient(135deg, #e4557c, #bf4c6e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        /* album wrapper semua foto dalam satu baris horizontal */
+        .album-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 1.2rem;
+            margin-top: 0.8rem;
+        }
+
+        .album-card {
+            background: white;
+            border-radius: 1.4rem;
+            overflow: hidden;
+            width: 170px;
+            box-shadow: 0 10px 16px rgba(160, 70, 100, 0.1);
+            transition: all 0.25s ease;
+            border: 1px solid #ffd2df;
+            flex-shrink: 0;
+        }
+
+        .album-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 22px rgba(190, 85, 115, 0.18);
+        }
+
+        .album-img {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+            border-bottom: 2px solid #ffe1ec;
+            background-color: #fceef3;
+        }
+
+        .album-label {
+            padding: 0.5rem;
+            text-align: center;
+            font-weight: 600;
+            background: #fff7fa;
+            color: #c05f81;
+            font-size: 0.75rem;
+        }
+
+        /* separator tipis antara grup album (opsional) */
+        .album-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .album-badge {
+            font-size: 0.8rem;
+            background: #ffeef4;
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+            color: #be6a8a;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        /* music player */
+        .music-player-section {
+            background: rgba(255, 240, 247, 0.95);
+            border-radius: 2rem;
+            padding: 1.5rem 1rem;
+            margin-top: 2rem;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+            border: 1px solid #ffcfdf;
+        }
+
+        .music-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            color: #cf6b8e;
+        }
+
+        .track-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .track {
+            background: white;
+            border-radius: 1.8rem;
+            padding: 0.9rem 1rem;
+            width: 220px;
+            text-align: center;
+            transition: all 0.2s;
+            border: 1px solid #ffbfd2;
+        }
+
+        .track:hover {
+            background: #fffafd;
+            border-color: #f59bb9;
+        }
+
+        .track-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            background: linear-gradient(135deg, #d1557a, #ad4969);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.6rem;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 6px;
+            border-radius: 40px;
+            outline: none;
+        }
+
+        audio::-webkit-media-controls-panel {
+            background-color: #ffe6f0;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.7rem;
+            color: #dd8aaa;
+            border-top: 1px solid #ffdbe8;
+            padding-top: 1.2rem;
+        }
+
+        /* responsive: di layar kecil album tetap horizontal, bisa scroll atau wrapping */
+        @media (max-width: 1050px) {
+            .album-row {
+                justify-content: center;
+                gap: 1rem;
+            }
+            .album-card {
+                width: 155px;
+            }
+            .album-img {
+                height: 155px;
+            }
+        }
+
+        @media (max-width: 780px) {
+            .album-card {
+                width: 140px;
+            }
+            .album-img {
+                height: 140px;
+            }
+            .album-label {
+                font-size: 0.7rem;
+            }
+        }
+
+        @media (max-width: 550px) {
+            body {
+                padding: 0.8rem;
+            }
+            .container {
+                padding: 1rem;
+            }
+            .couple-duo {
+                gap: 0.7rem;
+                padding: 0.8rem;
+            }
+            .couple-item {
+                width: 130px;
+            }
+            .album-card {
+                width: 120px;
+            }
+            .album-img {
+                height: 120px;
+            }
+            .track {
+                width: 100%;
+                max-width: 250px;
+            }
+            .album-badge {
+                font-size: 0.65rem;
+                white-space: normal;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- DUA FOTO COUPLE BERSEMBALAHAN -->
+    <div class="hero-side">
+        <div class="couple-duo">
+            <div class="couple-item">
+                <img class="couple-img-small" src="couple1.jpg" alt="Foto Couple 1" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x500/ffe1ec/c75177?text=Akip';">
+                <div class="caption-inline">Akip</div>
+            </div>
+            <div class="couple-item">
+                <img class="couple-img-small" src="couple2.jpg" alt="Foto Couple 2" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x500/ffd6e5/b94569?text=Ujuj';">
+                <div class="caption-inline">Ujuj</div>
+            </div>
+        </div>
+        <div class="hero-tagline">
+            siapa sangka kita adalah mantan
+        </div>
+    </div>
+
+    <!-- ALBUM : 6 FOTO SEMUA DALAM SATU BARIS HORIZONTAL (KIRI KANAN SEBELAHAN) -->
+    <div class="album-section">
+        <div style="text-align: center;">
+            <h2 class="section-title">📸 ALBUM 📸 </h2>
+        </div>
+        
+        <!-- SEMUA ALBUM (3 baru + 3 lama) tampil bersebelahan kiri-kanan dalam satu baris -->
+        <div class="album-row">
+            <!-- 3 ALBUM BARU (sebelah kiri) -->
+            <div class="album-card">
+                <img class="album-img" src="album1.jpg" alt="Kenangan baru 1" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x400/fcd9e8/c45a7c?text=+Baru+1';">
+                <div class="album-label">loh </div>
+            </div>
+            <div class="album-card">
+                <img class="album-img" src="album2.jpg" alt="Kenangan baru 2" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x400/fbe2ef/c55e7f?text=+Baru+2';">
+                <div class="album-label">CANTIK </div>
+            </div>
+            <div class="album-card">
+                <img class="album-img" src="album3.jpg" alt="Kenangan baru 3" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x400/ffe5f1/c65779?text=+Baru+3';">
+                <div class="album-label"> orang cakep</div>
+            </div>
+
+            <!-- 3 ALBUM LAMA (sebelah kanan, tetap satu baris) -->
+            <div class="album-card">
+                <img class="album-img" src="foto1.jpg" alt="Album 1" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x400/ffd9e7/c15177?text=CANTIK';">
+                <div class="album-label">love</div>
+            </div>
+            <div class="album-card">
+                <img class="album-img" src="foto2.jpg" alt="Album 2" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x400/fce6f0/c05a7c?text=Indah';">
+                <div class="album-label">edan cakep pisan</div>
+            </div>
+            <div class="album-card">
+                <img class="album-img" src="foto3.jpg" alt="Album 3" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x400/ffeff5/c15d80?text=Lucu';">
+                <div class="album-label">ini lucu</div>
+            </div>
+        </div>
+
+        <!-- keterangan kecil -->
+        <p style="text-align: center; font-size: 0.7rem; margin-top: 16px; color:#e07b9b;">
+            🌸  🌸
+        </p>
+    </div>
+
+    <!-- MUSIK 3 LAGU -->
+    <div class="music-player-section">
+        <div class="music-title">
+            <span>🎵</span> OUR LOVE SONGS <span>🎶</span>
+        </div>
+        <div class="track-list">
+            <div class="track">
+                <div class="track-name">Shape of my Heart</div>
+                <audio controls preload="metadata">
+                    <source src="lagu1.mp4" type="audio/mpeg">
+                    Browser tidak support audio.
+                </audio>
+                <small style="display:block; margin-top: 5px; color:#be7b98;">🎧 special for u</small>
+            </div>
+            <div class="track">
+                <div class="track-name">Home</div>
+                <audio controls preload="metadata">
+                    <source src="lagu2.mp4" type="audio/mpeg">
+                    Browser tidak support audio.
+                </audio>
+                <small style="display:block; margin-top: 5px; color:#be7b98;"> love </small>
+            </div>
+            <div class="track">
+                <div class="track-name">you!</div>
+                <audio controls preload="metadata">
+                    <source src="lagu3.mp4" type="audio/mpeg">
+                    Browser tidak support audio.
+                </audio>
+                <small style="display:block; margin-top: 5px; color:#be7b98;"> our promise</small>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 0.8rem;">
+            <span style="background: #feeaf2; padding: 3px 18px; border-radius: 60px; font-size: 0.65rem;">🎼 3 lagu romantis untuk kita</span>
+        </div>
+    </div>
+
+    <div class="footer-note">
+<br>
+        📂 
+    </div>
+</div>
+</body>
+</html>
